@@ -1,0 +1,11 @@
+{
+  "sqltools.connections": [
+    {
+      "previewLimit": 50,
+      "driver": "SQLite",
+      "name": "event",
+      "database": "${workspaceFolder:BEW-1.2-Events-Homework-main}/events_app/database.db"
+    }
+  ],
+  "sqltools.useNodeRuntime": true
+}

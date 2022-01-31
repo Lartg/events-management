@@ -70,7 +70,10 @@ def rsvp(event_id):
         if Guest.query.filter_by(name=guest_name):
             # TODO: If the guest does exist, add the event to their 
             # events_attending, then commit to the database.
-
+            guest = Guest.query.filter_by(name=guest_name)
+            guest.events_attending.append(event)
+            db.session.update(guest)
+            db.session.commit()
             pass
         else:
             flash('error')
@@ -84,6 +87,7 @@ def rsvp(event_id):
 
         # add the event to their events_attending, then commit to the database.
         new_guest = Guest(name=guest_name,email=guest_email,phone=guest_phone)
+        new_guest.events_attending.append(event)
         db.session.add(new_guest)
         db.session.commit()
         pass
